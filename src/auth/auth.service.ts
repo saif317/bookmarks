@@ -4,7 +4,7 @@ import { PrismaClientKnownRequestError } from '@prisma/client/runtime';
 import { JwtService } from '@nestjs/jwt';
 import { ConfigService } from '@nestjs/config';
 
-import { PrismaService } from 'src/prisma/prisma.service';
+import { PrismaService } from '../prisma/prisma.service';
 import { AuthDto } from './dto';
 
 @Injectable({})
@@ -66,8 +66,6 @@ export class AuthService {
       expiresIn: '15m',
       secret: secret,
     });
-
-    console.log(token);
 
     return {
       access_token: token,
